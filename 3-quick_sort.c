@@ -7,12 +7,13 @@
  *
  * Description: This function swaps the values of two integers.
  */
-void swap(int *a, int *b) {
-  int temp;
+void swap(int *a, int *b)
+{
+	int temp;
 
-  temp = *a;
-  *a = *b;
-  *b = temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 /**
@@ -28,22 +29,25 @@ void swap(int *a, int *b) {
  *
  * Return: The index of the pivot element after partitioning.
  */
-int partition(int *array, int low, int high) {
-  int pivot, i, j;
+int partition(int *array, int low, int high)
+{
+	int pivot, i, j;
 
-  pivot = array[high];
-  i = low - 1;
+	pivot = array[high];
+	i = low - 1;
 
-  for (j = low; j < high; j++) {
-    if (array[j] < pivot) {
-      i++;
-      swap(&array[i], &array[j]);
-      print_array(array, high + 1);
-    }
-  }
+	for (j = low; j < high; j++)
+	{
+		if (array[j] < pivot)
+		{
+			i++;
+			swap(&array[i], &array[j]);
+			print_array(array, high + 1);
+		}
+	}
 
-  swap(&array[i + 1], &array[high]);
-  return (i + 1);
+	swap(&array[i + 1], &array[high]);
+	return (i + 1);
 }
 
 /**
@@ -55,15 +59,17 @@ int partition(int *array, int low, int high) {
  * Description: This function recursively applies Quick Sort algorithm
  * to sort the elements of the array in ascending order.
  */
-void quick_sort_helper(int *array, int low, int high) {
-  int pi;
+void quick_sort_helper(int *array, int low, int high)
+{
+	int pi;
 
-  if (low < high) {
-    pi = partition(array, low, high);
+	if (low < high)
+	{
+		pi = partition(array, low, high);
 
-    quick_sort_helper(array, low, pi - 1);
-    quick_sort_helper(array, pi + 1, high);
-  }
+		quick_sort_helper(array, low, pi - 1);
+		quick_sort_helper(array, pi + 1, high);
+	}
 }
 
 /**
@@ -76,9 +82,10 @@ void quick_sort_helper(int *array, int low, int high) {
  * using the Quick Sort algorithm with Lomuto partition scheme.
  * It prints the array after each swap operation.
  */
-void quick_sort(int *array, size_t size) {
-  if (array == NULL || size < 2)
-    return;
+void quick_sort(int *array, size_t size)
+{
+	if (array == NULL || size < 2)
+		return;
 
-  quick_sort_helper(array, 0, size - 1);
+	quick_sort_helper(array, 0, size - 1);
 }

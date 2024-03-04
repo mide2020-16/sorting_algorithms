@@ -78,7 +78,8 @@ void quick_sort_helper(int *array, int low, int high)
  * @array: Pointer to the array to be sorted.
  * @size: Size of the array.
  *
- * Description: This function sorts the elements of the array in ascending order
+ * Description: This function sorts the elements of the
+ * array in ascending order
  * using the Quick Sort algorithm with Lomuto partition scheme.
  * It prints the array after each swap operation.
  */

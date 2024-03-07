@@ -50,8 +50,7 @@ void cocktail_sort_list(listint_t **list)
 		return;
 	}
 
-	do
-	{
+	do {
 		swapped = 0;
 
 		for (current = *list; current->next != NULL; current = current->next)

@@ -1,10 +1,19 @@
 #include "deck.h"
 
+/**
+ * compare_card - This compare card of same kind and value
+ *
+ * @a: the first instance of the deck
+ * @b: the second instance of the deck
+ *
+ * Return: the differeences
+*/
 int compare_card(const void *a, const void *b)
 {
 	const deck_node_t *node_a, *node_b;
 	int i, kind = 13, id_a = 0, id_b = 0;
-	const char *values[] = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+	const char *values[] = {"Ace", "2", "3", "4", "5", "6",
+	"7", "8", "9", "10", "Jack", "Queen", "King"};
 
 	node_a = *(deck_node_t **)a;
 	node_b = *(deck_node_t **)b;
@@ -16,7 +25,7 @@ int compare_card(const void *a, const void *b)
 	/*Compare the value if the two nodes are of same kind*/
 	for (i = 0; i < kind; i++)
 	{
-		if(strcmp(values[i], node_a->card->value) == 0)
+		if (strcmp(values[i], node_a->card->value) == 0)
 			id_a = i;
 		if (strcmp(values[i], node_b->card->value) == 0)
 			id_b = i;
@@ -24,6 +33,13 @@ int compare_card(const void *a, const void *b)
 
 	return (id_a - id_b);
 }
+
+/**
+ * sort_deck - A function that sorts cards on a deck by
+ * its kind and value
+ *
+ * @deck: The full unsorted cards
+*/
 void sort_deck(deck_node_t **deck)
 {
 	deck_node_t *current, **array;
@@ -34,7 +50,7 @@ void sort_deck(deck_node_t **deck)
 
 	/*Count the number of nodes in the deck*/
 	current = *deck;
-	while(current != NULL)
+	while (current != NULL)
 	{
 		count++;
 		current = current->next;
